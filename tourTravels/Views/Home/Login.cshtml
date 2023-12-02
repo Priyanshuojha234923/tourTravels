@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/GeneralMaster.cshtml";
+}
+<link href="~/Content/css/StyleSheet1.css" rel="stylesheet" />
+<body>
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row main-content text-center">
+            <div class="col-md-4 text-center company__info " style="background-color:antiquewhite">
+                
+                <img src="~/Content/image/Untitled-removebg-preview.png" class="img-fluid"  />
+            </div>
+            <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h2 style="margin-top:20px">Log In</h2>
+                    </div>
+                    <div class="row">
+                        <form control="login" class="form-group" method="post">
+                            <div class="row">
+                                <input type="text" name="uid"  id="username" class="form__input" placeholder="Username">
+                            </div>
+                            <div class="row">
+                                <!-- <span class="fa fa-lock"></span> -->
+                                <input type="password" name="pass" id="password" class="form__input" placeholder="Password">
+                            </div>
+                          
+                            <div class="row">
+                                <center> <input type="submit" value="Submit" class="btn"></center>
+                            </div>
+                        </form>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+  
+</body>
+

@@ -1,0 +1,150 @@
+﻿@model tourTravels.Models.ContactUs
+
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/GeneralMaster.cshtml";
+}
+
+<link href="~/Content/css/contactus.css" rel="stylesheet" />
+
+
+<div class="wrapper rounded d-flex align-items-stretch">
+    <div class="bg-yellow">
+        <div class="text-white">
+            <span class=""></span>
+        </div>
+        <div class="pt-5 cursive">
+            Please describe your idea to grow up
+        </div>
+        <div class="pt-sm-5 pt-5 cursive mt-sm-5">
+            We need your email to reach you back
+        </div>
+    </div>
+    <div class="contact-form">
+        <div class="h3 text-center">Contact Us</div>
+        <form action="ContactUs" method="post">
+            <div class="d-flex align-items-center flex-wrap justify-content-between pt-4">
+                <div class="form-group pt-lg-2 pt-3">
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+                <div class="form-group pt-lg-2 pt-3">
+                    <label for="name">Your Email</label>
+                    <input type="text" name="Email" class="form-control" required>
+                </div>
+            </div>
+            <div class="d-flex align-items-center flex-wrap justify-content-between pt-4">
+                <div class="form-group pt-lg-2 pt-3">
+                    <label for="phone">Your Mobile</label>
+                    <input type="number" name="Phone" class="form-control" required>
+                </div>
+                <div class="form-group pt-lg-2 pt-3">
+                    <label for="name">Your Message</label>
+                    <textarea  name="msg" class="form-control" required></textarea>
+                </div>
+            </div>
+            <div class="d-flex align-items-center flex-wrap justify-content-between pt-lg-5 mt-lg-4 mt-5">
+                <div class="btn btn-default">
+                    <a href="/home/index" class="btn btn-primary">  Cancel</a>
+                </div>
+                <div >
+                    <input type="submit" value="send" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Modal -->
+@*<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">
+                    Thank You
+                    <span class="fas fa-heart"></span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="ps-2">
+                    @ViewBag.msg
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+@*<style>
+        body {
+            background-image: url('../../content/image/pexels-andrei-tanase-1271619.jpg');
+            /*background-image: url('../../content/image/pexels-te-lensfix-1371360.jpg');*/
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+    </style>
+
+    <body>
+        <section class=" py-3 py-md-5"style="border-radius:80px;background-color:none">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                        <center><span style="font-size:32px;font-family:'Global Monospace'">Get in Touch</span></center>
+
+                        <hr style="height:15px;width:100%">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row gy-3 gy-md-4 gy-lg-0 align-items-xl-center" >
+                    <div class="col-12 col-lg-6  ">
+                        <img class="img-fluid rounded" loading="lazy" src="~/Content/image/pankaj-kumar-s9KlC-kMFtU-unsplash.jpg" alt="Get in Touch" >
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="row justify-content-xl-center">
+                            <div class="col-12 col-xl-11">
+                                <div class="bg-white border rounded shadow-sm overflow-hidden">
+
+                                    <form action="ContactUs" method="post">
+                                        <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
+                                            <div class="col-12">
+                                                <label for="fullname" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="fullname" name="name" value="" required>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="fullname" class="form-label">Email <span class="text-danger">*</span></label>
+                                                <input type="email" class="form-control" id="fullname" name="Email" value="" required>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="fullname" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                                                <input type="number" class="form-control" id="fullname" name="phone" value="" required>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+                                                <textarea class="form-control" id="message" name="msg" rows="3" required></textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="d-sm-grid">
+                                                    <button class="btn btn-primary btn-lg" type="submit">Send Message</button>
+                                                    <br />
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>*@
+
+
+
+
+
+
+

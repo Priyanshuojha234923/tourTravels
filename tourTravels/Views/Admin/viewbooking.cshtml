@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "viewbooking";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+@using tourTravels.Models
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<body style="background-image:url(../../Content/image/pexels-nandhu-kumar-450441.jpg);background-size:100% 100%;background-attachment:fixed">
+    <div id="contact" class="contact-area section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h1 style="color:white"><span id="sp"></span>View Booking</h1>
+
+            </div>
+            <div class="row table-responsive-lg">
+
+                @{
+                    DBManager db = new DBManager();
+                    string cmd = "select * from booking";
+                    System.Data.DataTable dt = db.getallrecord(cmd);
+                    if (dt.Rows.Count > 0)
+                    {
+                        <table class="table table-bordered  ">
+                            <tr style="color:white;background-color:lightgreen" class="text text-center">
+                                <td>No</td>
+                                <td>name</td>
+                                <td>Email</td>
+                                <td>Mobile</td>
+                                <td>Destination</td>
+                                <td>Picup point</td>
+                                <td>Date</td>
+
+                                <td>Delete</td>
+
+                            </tr>
+
+
+                            @{ for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    <tr style="color:white" class="text text-center">
+
+                                        <td>@dt.Rows[i]["bid"]</td>
+                                        <td>@dt.Rows[i]["name"]</td>
+                                        <td>@dt.Rows[i]["email"]</td>
+                                        <td>@dt.Rows[i]["mobile"]</td>
+                                        <td>@dt.Rows[i]["destination"]</td>
+                                        <td>@dt.Rows[i]["currentloc"]</td>
+                                        <td>@dt.Rows[i]["Date"]</td>
+
+                                        <td><a href="/manager/Deletebooking?del=@dt.Rows[i]["bid"]"><i class="fa fa-minus-circle" aria-hidden="true" style="color:red"></i></a></td>
+
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    }
+                    else
+                    {
+                        <h2 class="text text-center">Record not found</h2>
+                    }
+
+                }
+            </div><!--- END ROW -->
+        </div><!--- END CONTAINER -->
+    </div>
+</body>
+
+
+
+
+

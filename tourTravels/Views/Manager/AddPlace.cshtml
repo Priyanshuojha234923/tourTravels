@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "AddPlace";
+    Layout = "~/Views/Shared/ManagerMaster.cshtml";
+}
+
+<body style="background-image:url(../../Content/image/pexels-zahid-lilani-2104742.jpg);background-attachment:fixed;background-size:cover">
+    <div class="container bg-opacity-25">
+        <section class="vh-100 " style="margin-bottom:50px">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-xl-9">
+
+                       
+
+                        <div class="card card-body" style="border-radius: 15px;">
+                            <form method="post" action="/manager/addplace" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <center>  <h1>Add  Place</h1></center>
+                                    <div class="row align-items-center pt-4 pb-3">
+                                        <div class="col-md-3 ps-5">
+
+                                            <h6 class="mb-0">City Name</h6>
+
+                                        </div>
+                                        <div class="col-md-9 pe-5">
+
+                                            <input type="text" class="form-control form-control-lg" name="place" />
+
+                                        </div>
+                                    </div>
+
+                                    <hr class="mx-n3">
+
+
+
+                                    <hr class="mx-n3">
+
+                                    <div class="row align-items-center py-3">
+                                        <div class="col-md-3 ps-5">
+
+                                            <h6 class="mb-0">City Description</h6>
+
+                                        </div>
+                                        <div class="col-md-9 pe-5">
+
+                                            <textarea class="form-control" rows="3" placeholder="Message sent to the employer" name="des"></textarea>
+
+                                        </div>
+                                    </div>
+
+                                    <hr class="mx-n3">
+
+                                    <div class="row align-items-center py-3">
+                                        <div class="col-md-3 ps-5">
+
+                                            <h6 class="mb-0">Enter Picture</h6>
+
+                                        </div>
+                                        <div class="col-md-9 pe-5">
+
+                                            <input class="form-control form-control-lg" id="formFileLg" type="file" name="pic" />
+
+
+                                        </div>
+                                    </div>
+
+                                    <hr class="mx-n3">
+
+                                    <div class="px-5 py-4">
+                                        <center>  <button type="submit" class="btn btn-primary btn-lg">Add Place</button></center>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
