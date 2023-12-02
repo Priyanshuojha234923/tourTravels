@@ -1,59 +1,99 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/GeneralMaster.cshtml";
 }
+
 @using tourTravels.Models;
 <html>
 <head>
     <link href="~/Content/css/index.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-3.7.1.min.js"></script>
-    <style>  </style>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" />
+    <style>
+    </style>
 </head>
 <body>
-
-
-    <div class="container" style="margin-top:10%">
-
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto">
-
-                <div class=" p-5 rounded shadow">
-
-                    <form>
-                        <div class="row mb-4">
-
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="txtplace">
-                                <option>Where Want to go</option>
-                            </select>
-                            <input type="button" value="book Now" class="btn btn-success" id="btnsave" data-bs-toggle="modal" data-bs-target="#exampleModal" />
-                        </div>
-
-
-                    </form>
-
+    <section>
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="~/Content/image/pexels-frans-van-heerden-632522.jpg" class="d-block w-100" alt="..." style="max-height: 600px; opacity: 0.7">
+                    <div class="carousel-caption ">
+                        <span>London</span>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="~/Content/image/pexels-elijah-odonnell-2409681.jpg" class="d-block w-100" alt="..." style="max-height: 600px; opacity: 0.7">
+                    <div class="carousel-caption ">
+                        <span>Paris</span>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Content/image/pexels-elijah-odonnell-2409681.jpg" class="d-block w-100" alt="..." style="max-height:600px;opacity:0.7">
+                    <div class="carousel-caption align-items-center ">
+                        <span>austrelia</span>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
                 </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <table id="cartGrid" class="">
-        </table>
 
-    </div>
-    <div class="container opacity-75 bg-dark" style="border-radius:5% 10%;margin-top:5%">
+    </section>
+
+
+
+    <section style="background-color: #f5fffa ">
+        <div class="container" style="background-color: #f5fffa ">
+
+            <div class="row mb-5" style="background-color: #f5fffa; ">
+                <div class="col-lg-8 mx-auto" style="margin-top:5%">
+
+                    <div class=" p-5 rounded shadow" style="background-color: #f5fffa">
+
+                        <form>
+                            <div class="row mb-4">
+
+                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="txtplace">
+                                    <option>Where Want to go</option>
+                                </select>
+                                <input type="button" value="book Now" class="btn btn-success" id="btnsave" data-bs-toggle="modal" data-bs-target="#exampleModal" />
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <section style="background-color: #f5fffa; ">
         <!-- About 1 - Bootstrap Brain Component -->
-        <section class="py-3 py-md-5 py-xl-8">
-            <div class="container ">
-                <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
-                    <div class="col-12 col-lg-6 col-xl-5">
-
-                        <img src="~/Content/image/pexels-zahid-lilani-2104742.jpg" class="img-fluid rounded" loading="lazy" alt="" />
+        <section class="py-3 py-md-5" style="background-color: #f5fffa;">
+            <div class="container" style="background-color: #f5fffa">
+                <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center" style="background-color: #f5fffa">
+                    <div class="col-12 col-lg-6 col-xl-5" style="background-color: #f5fffa">
+                        <img class="img-fluid rounded" loading="lazy" src="~/content/image/pexels-andrei-tanase-1271619.jpg" alt="About 1">
                     </div>
                     <div class="col-12 col-lg-6 col-xl-7">
-                        <div class="row justify-content-xl-center">
-                            <div class="col-12 col-xl-11" style="color:cornflowerblue">
-                                <h2 class="h1 mb-3">Who Are We?</h2>
+                        <div class="row justify-content-xl-center" style="background-color: #f5fffa">
+                            <div class="col-12 col-xl-11" style="background-color: #f5fffa;">
+                                <h2 class="mb-3">Who Are We?</h2>
                                 <p class="lead fs-4 text-secondary mb-3">We help people to build incredible brands and superior products. Our perspective is to furnish outstanding captivating services.</p>
-                                <p class="mb-5">Nullam gravida orci ac luctus molestie. Fusce finibus congue erat, non aliquam magna tincidunt at. Aenean lacinia arcu ex, sed pharetra nibh porta a. Curabitur vel consequat nibh, ac interdum nisl. Nunc pulvinar nec massa vitae sollicitudin.</p>
+                                <p class="mb-5">We are a fast-growing company, but we have never lost sight of our core values. We believe in collaboration, innovation, and customer satisfaction. We are always looking for new ways to improve our products and services.</p>
                                 <div class="row gy-4 gy-md-0 gx-xxl-5X">
                                     <div class="col-12 col-md-6">
                                         <div class="d-flex">
@@ -63,7 +103,7 @@
                                                 </svg>
                                             </div>
                                             <div>
-                                                <h4 class="mb-3">Versatile Brand</h4>
+                                                <h2 class="h4 mb-3">Versatile Brand</h2>
                                                 <p class="text-secondary mb-0">We are crafting a digital method that subsists life across all mediums.</p>
                                             </div>
                                         </div>
@@ -76,7 +116,7 @@
                                                 </svg>
                                             </div>
                                             <div>
-                                                <h4 class="mb-3">Digital Agency</h4>
+                                                <h2 class="h4 mb-3">Digital Agency</h2>
                                                 <p class="text-secondary mb-0">We believe in innovation by merging primary with elaborate ideas.</p>
                                             </div>
                                         </div>
@@ -88,128 +128,78 @@
                 </div>
             </div>
         </section>
-    </div>
-
-
-    <section class=" pt-5 pb-5 shadow-sm">
+    </section>
+    <section class="pt-5 pb-5">
         <div class="container">
-            <div class="row pt-5">
-                <div class="col-12">
-                    <h3 class="text-center">OUR TOP PLACES</h3>
-                </div>
-            </div>
             <div class="row">
-                @{
-                    DBManager db = new DBManager();
-                    string cmd = "select * from tbl_place";
-                    System.Data.DataTable dt = db.getallrecord(cmd);
-                    if (dt.Rows.Count > 0)
-                    {
-                        for (int i = 0; i < dt.Rows.Count; i++)
-                        {
-                            <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-                                <div class="card">
-                                    <img src="~/content/image/@dt.Rows[i]["file"]" class="card-img-top" alt="Card Image">
-                                    <div class="card-body d-flex flex-column">
-                                        <h5 class="card-title">@dt.Rows[i]["place"]</h5>
-                                        <p class="card-text mb-4">@dt.Rows[i]["description"]</p>
-                                        <a href="#" class="btn btn-primary mt-auto align-self-start">Book now</a>
-                                    </div>
+                <div class="col-12">
+                    <center><span class="text-capitalize" style=" font-family: 'Caveat', cursive; text-shadow: 0px 0px 2px rgba(0, 2, 0, 1);font-size:45px">top places </span></center>
+                </div>
+               
+                <div class="col-12">
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    @{
+                                        DBManager db = new DBManager();
+                                        string cmd = "select * from tbl_place";
+                                        System.Data.DataTable dt = db.getallrecord(cmd);
+                                        if (dt.Rows.Count > 0)
+                                        {
+                                            for (int i = 0; i < dt.Rows.Count; i++)
+                                            {
+                                                <div class="col-md-4 mb-3">
+                                                    <div class="card">
+                                                        <img class="img-fluid" alt="100%x280" src="~/content/image/@dt.Rows[i]["file"]">
+                                                        <div class="card-body">
+                                                            <h4 class="card-title">@dt.Rows[i]["place"]</h4>
+                                                            <p class="card-text">@dt.Rows[i]["description"]</p>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+
+                                                
+                                            }
+                                        }
+                                    }
+
+
+
+
                                 </div>
                             </div>
-                        }
-                    }
-                }
+                            <div class="carousel-item">
+                                <div class="row">
 
+                             
+                               
+                            
 
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
 
-    @*<div id="cards_landscape_wrap-2" style="background-color:unset;">
-
-        <div class="container" style="border-radius:50px;">
-            <h2 style="color:cyan;font-size:40px;">Places</h2>
-            <div class="row">
-                @{
-                    DBManager db = new DBManager();
-                    string cmd = "select * from tbl_place";
-                    System.Data.DataTable dt = db.getallrecord(cmd);
-                    if (dt.Rows.Count > 0)
-                    {
-                        for (int i = 0; i < dt.Rows.Count; i++)
-                        {
-                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                                <a href="">
-                                    <div class="card-flyer">
-                                        <div class="text-box">
-                                            <div class="image-box">
-                                                <img src="~/content/image/@dt.Rows[i]["file"]" alt="" />
-                                            </div>
-                                            <div class="text-container" style="background-color:burlywood">
-                                                <h6 id="data">@dt.Rows[i]["place"]</h6>
-                                                <p class="lh-1">@dt.Rows[i]["description"]</p>
-                                                <Button type="submit" class="btn btn-success">BOOK NOW</Button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        }
-                    }
-                }
-            </div>
-
-        </div>
-    </div>*@
 
 
 
 
-    @*<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 
-                <form class="form-group" method="post" action="/home/booking">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">LOGIN HERE</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
 
-                            <table class="table table-responsive">
-                                <tr>
-                                    <td>Name</td>
-                                    <td><input type="text" class="form-control" id="txtname" name="Txtname" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td><input type="text" class="form-control" id="txtemail" name="Txtemail" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Mobile number</td>
-                                    <td><input type="text" class="form-control" id="txtmobile" name="Txtmobile" /></td>
-                                </tr>
-                                <tr>
-                                    <td>Destination</td>
-                                    <td><input type="text" class="form-control" id="desti" name="Desti" readonly /></td>
-                                </tr>
-                                <tr>
-                                    <td>Current Location</td>
-                                    <td><input type="text" class="form-control" id="clocation" name="Clocation" /></td>
-                                </tr>
-                            </table>
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <input type="submit" class="btn btn-primary" id="book" value="submit">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>*@
+    <!--Item One -->
     <!-- Button trigger modal -->
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -217,7 +207,7 @@
 
             <form class="form-group" method="post" action="/home/booking">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header" style="background-color:blueviolet">
                         <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">LOGIN HERE</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -249,13 +239,12 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-primary" id="book" value="submit">
+                        <input type="submit" class="btn btn-primary" style="background-color:blueviolet" id="book" value="submit">
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
     <script>
         $(document).ready(function () {
 
