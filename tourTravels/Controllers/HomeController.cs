@@ -32,10 +32,10 @@ namespace tourTravels.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ContactUs(string name ,string Email, string phone ,string msg)
+        public ActionResult ContactUs(string name ,string email, string phone ,string msg)
         {
             
-            string cmd = "insert into tbl_contact values('" + name + "','" + Email + "','" + phone + "','" + msg + "')";
+            string cmd = "insert into tbl_contact values('" + name + "','" + email + "','" + phone + "','" + msg + "')";
             if(db.myinsertupdatedelete(cmd))
             {
                 Response.Write("<script>alert('Message Send')</script>");
@@ -126,6 +126,26 @@ namespace tourTravels.Controllers
                
                 Response.Redirect("/home/index");
                 Response.Write("<script>alert('data not')</script>");
+            }
+            return View();
+        }
+        public ActionResult feedback()
+        {
+           
+            return View();
+        }
+        [HttpPost]
+        public ActionResult feedback(string txtname,string msg,string rating)
+        {
+            string cmd = "insert into feedback values('" +  txtname + "','" + msg  +"','"+rating+"','"+DateTime.Now.ToString()+"')";
+           
+            if (db.myinsertupdatedelete(cmd))
+            {
+                Response.Write("<script>alert('data inserted')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('data not inserted')</script>");
             }
             return View();
         }

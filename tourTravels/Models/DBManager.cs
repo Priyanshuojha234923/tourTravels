@@ -31,6 +31,7 @@ namespace tourTravels.Models
             SqlDataAdapter sa = new SqlDataAdapter(command, conn);
             DataTable dt = new DataTable();
             sa.Fill(dt);
+            conn.Close();
 
 
             return dt;

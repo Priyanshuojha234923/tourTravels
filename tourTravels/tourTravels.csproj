@@ -138,7 +138,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Content\css\contactus.css" />
+    <Content Include="Content\css\contachus.css" />
     <Content Include="Content\css\Generalmaster.css" />
     <Content Include="Content\css\index.css" />
     <Content Include="Content\css\JavaScript.js" />
@@ -236,6 +236,7 @@
     <Content Include="Views\Admin\Logout.cshtml" />
     <Content Include="Views\Manager\Logout.cshtml" />
     <Content Include="Views\Home\booking.cshtml" />
+    <Content Include="Views\Home\feedback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

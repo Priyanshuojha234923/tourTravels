@@ -1,6 +1,15 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap');
 
+.testimonial-slider .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    background-color: #dc3545;
+    border-radius: 100%;
+}
 
+.testimonial-slider {
+    padding: 10px 0px 40px;
+}
 
 
 @media(min-width:768px) {
