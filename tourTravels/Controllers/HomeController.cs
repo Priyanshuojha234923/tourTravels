@@ -38,6 +38,10 @@ namespace tourTravels.Controllers
             string cmd = "insert into tbl_contact values('" + name + "','" + email + "','" + phone + "','" + msg + "')";
             if(db.myinsertupdatedelete(cmd))
             {
+                name = "";
+                email = "";
+                phone = "";
+                msg = "";
                 Response.Write("<script>alert('Message Send')</script>");
             }
             else
@@ -110,11 +114,11 @@ namespace tourTravels.Controllers
             return View();  
         }
         [HttpPost]
-       public ActionResult booking(string Txtname,string Txtemail,string Txtmobile,string Desti,string Clocation)
+       public ActionResult booking(string Txtname,string Txtemail,string Txtmobile,string Desti,string Clocation,string txtdate)
         {
           //string data = "";
             
-            string cmd = "insert into Booking values('" + Txtname + "','"+Txtemail+"','"+Txtmobile+"','"+Desti+"','"+Clocation+"','"+DateTime.Now.ToString()+"')";
+            string cmd = "insert into Booking values('" + Txtname + "','"+Txtemail+"','"+Txtmobile+"','"+Desti+"','"+Clocation+"','"+txtdate+"','"+DateTime.Now.ToString()+"')";
             if (db.myinsertupdatedelete(cmd))
             {
                
@@ -149,5 +153,12 @@ namespace tourTravels.Controllers
             }
             return View();
         }
+        public ActionResult vplace(string id)
+        {
+            ViewBag.pid = id;
+            return View();
+        }
+      
+        
     }
 }

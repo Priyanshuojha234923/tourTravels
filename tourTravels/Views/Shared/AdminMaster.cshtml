@@ -90,12 +90,76 @@
         </nav>*@
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
+    </div>
+    <section class="">
+        <!-- Footer -->
+        <footer class="bg-dark" style="color:white">
+            <!-- Grid container -->
+            <div class=" p-4">
+                <!--Grid row-->
+                <div class="row" style="padding:2%">
+                    <!--Grid column-->
+                    <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase text-center">Let's Travel</h5>
+
+                        <p class="text-center">
+                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                        </p>
+                    </div>
+                    <!--Grid column-->
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase text-center">Links</h5>
+                        <ul class="list-unstyled text-center" style="color:white">
+                            <li>
+                                hello
+                            </li>
+                            <li>
+                                style
+                            </li>
+                            <li>
+                                fds
+                            </li>
+                            <li>
+                                gfds
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase text-center">Links</h5>
+
+                        <ul class="list-unstyled text-center" style="color:white">
+                            <li>
+                                hello
+                            </li>
+                            <li>
+                                style
+                            </li>
+                            <li>
+                                fds
+                            </li>
+                            <li>
+                                gfds
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </div>
+            <!-- Grid container -->
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+                © 2020 Copyright:
+                Priyanshu Ojha
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+    </section>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

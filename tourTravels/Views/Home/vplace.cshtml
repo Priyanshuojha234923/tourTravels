@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "vplace";
+    Layout = "~/Views/Shared/GeneralMaster.cshtml";
+}
+<link href="~/Content/css/index.css" rel="stylesheet" />
+
+@{
+    string id = ViewBag.pid;
+    tourTravels.Models.DBManager db = new tourTravels.Models.DBManager();
+    string cmd = "select * from tbl_place where pid='" + id + "'";
+    System.Data.DataTable dt = db.getallrecord(cmd);
+    if (dt.Rows.Count > 0)
+    {
+        <section>
+            <div class="container" style="margin-bottom:5%">
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <img src="~/Content/image/@dt.Rows[0]["file"]" class="d-block w-100" alt="..." style="max-height: 600px; opacity: 0.7">
+                            <div class="carousel-caption ">
+                                <span>@dt.Rows[0]["place"]</span>
+                                
+                                <br />
+                                <br />
+                                <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">BOOK NOW</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <span class="text-center" style="font-size:60px">@dt.Rows[0]["place"]</span>
+                    <hr style="height:5px;background-color:antiquewhite" />
+                    <span style="font-size:25px">@dt.Rows[0]["description"]</span>
+                    <br />
+                   <br />
+                </div>
+                <div class="Row"><center><br /> <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">BOOK NOW</button></center></div>
+            </div>
+        </section>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
+                <form class="form-group" method="post" action="/home/booking">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background-color:blueviolet">
+                            <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">BOOKING HERE</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <table class="table table-responsive">
+                                <tr>
+                                    <td>Name</td>
+                                    <td><input type="text" class="form-control" id="txtname" name="Txtname" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><input type="text" class="form-control" id="txtemail" name="Txtemail" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Mobile</td>
+                                    <td><input type="text" class="form-control" id="txtmobile" name="Txtmobile" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Picup Date</td>
+                                    <td><input type="date" class="form-control" id="txtdate" name="txtdate" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Destination</td>
+                                    <td><input type="text" class="form-control" value="@dt.Rows[0]["place"]" name="Desti" readonly /></td>
+                                </tr>
+                                <tr>
+                                    <td>Current Location</td>
+                                    <td><input type="text" class="form-control" id="clocation" name="Clocation" /></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary" style="background-color:blueviolet" id="book" value="submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+}
+
+
+
+

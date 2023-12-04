@@ -143,12 +143,14 @@
     <Content Include="Content\css\index.css" />
     <Content Include="Content\css\JavaScript.js" />
     <Content Include="Content\css\StyleSheet1.css" />
+    <Content Include="Content\css\vplace.css" />
     <Content Include="Content\image\240_F_513773104_G7Pin2bxWwpMAWqI5MIvrSnWDpYs80WN.jpg" />
     <Content Include="Content\image\pankaj-kumar-s9KlC-kMFtU-unsplash.jpg" />
     <Content Include="Content\image\pexels-aawara-musafir-18357603.jpg" />
     <Content Include="Content\image\pexels-alfonso-escalante-2533092.jpg" />
     <Content Include="Content\image\pexels-andrei-tanase-1271619.jpg" />
     <Content Include="Content\image\pexels-aymyogaschool-2101774.jpg" />
+    <Content Include="Content\image\pexels-element-digital-1051073.jpg" />
     <Content Include="Content\image\pexels-elijah-odonnell-2409681.jpg" />
     <Content Include="Content\image\pexels-frans-van-heerden-632522.jpg" />
     <Content Include="Content\image\pexels-gya-den-2303781.jpg" />
@@ -160,6 +162,7 @@
     <Content Include="Content\image\pexels-quang-nguyen-vinh-2131856.jpg" />
     <Content Include="Content\image\pexels-quang-nguyen-vinh-2131899.jpg" />
     <Content Include="Content\image\pexels-riccardo-307008.jpg" />
+    <Content Include="Content\image\pexels-roberto-nickson-2486168.jpg" />
     <Content Include="Content\image\pexels-te-lensfix-1371360.jpg" />
     <Content Include="Content\image\pexels-thiago-japyassu-929032.jpg" />
     <Content Include="Content\image\pexels-zahid-lilani-2104742.jpg" />
@@ -237,6 +240,7 @@
     <Content Include="Views\Manager\Logout.cshtml" />
     <Content Include="Views\Home\booking.cshtml" />
     <Content Include="Views\Home\feedback.cshtml" />
+    <Content Include="Views\Home\vplace.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

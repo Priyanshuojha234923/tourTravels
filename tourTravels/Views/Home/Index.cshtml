@@ -61,10 +61,7 @@
         </div>
 
     </section>
-    <senction style="background-color:red">
-     
-
-    </senction>
+  
 
 
     <section style="background-color: #f5fffa ">
@@ -108,10 +105,10 @@
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         <div class="card-body" style="height:400px" >
-                        <img class="rounded-top-4"  src="~/content/image/@dt.Rows[i]["file"]" style="height:300px;width:300px;border-radius:20px"  />
+                        <img class="rounded-top-4"  src="~/content/image/@dt.Rows[i]["file"]" style="height:300px;width:300px;"  />
                             <h2 class="card-subtitle">@dt.Rows[i]["place"]</h2>
                             <h5><del style="color:red">$@dt.Rows[i]["orate"]</del>   <i style="color:green">$@dt.Rows[i]["nrate"]</i></h5>
-                            <a href="/home/index" style="text-decoration:none">Reed More</a>
+                            <a href="/home/vplace?id=@dt.Rows[i]["pid"]" style="text-decoration:none">Reed More</a>
                         </div>
                     }
                 }
@@ -167,7 +164,7 @@
 
    
 
-    <section class="testimonial-slider" style="background-color:antiquewhite;border-radius:50px;margin-top:5%;margin-bottom:5% ">
+    <section class="testimonial-slider" style="background-color:antiquewhite;border-radius:50px;margin-top:5%;margin-bottom:5%">
        
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" >
             <center>     <span style="font-size:40px">OUR HAPPY CUSTOMER</span></center>
@@ -294,7 +291,7 @@
             <form class="form-group" method="post" action="/home/booking">
                 <div class="modal-content">
                     <div class="modal-header" style="background-color:blueviolet">
-                        <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">LOGIN HERE</h1>
+                        <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">BOOKING HERE</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -311,6 +308,10 @@
                             <tr>
                                 <td>Mobile</td>
                                 <td><input type="text" class="form-control" id="txtmobile" name="Txtmobile" /></td>
+                            </tr>
+                            <tr>
+                                <td>Picup Date</td>
+                                <td><input type="date" class="form-control" id="txtdate" name="txtdate" /></td>
                             </tr>
                             <tr>
                                 <td>Destination</td>
