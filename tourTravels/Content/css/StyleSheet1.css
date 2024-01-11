@@ -78,7 +78,7 @@ form {
         border-radius: 4px;
     }
 
-.btn {
+#btn {
     transition: all .5s ease;
     width: 70%;
     border-radius: 30px;
@@ -90,7 +90,7 @@ form {
     margin-bottom: 1em;
 }
 
-    .btn:hover, .btn:focus {
+    #btn:hover, #btn:focus {
         background-color: #008080;
         color: #fff;
     }

@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "ViewRegistration";
+    Layout = "~/Views/Shared/ManagerMaster.cshtml";
+}
+
+@using tourTravels.Models
+
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+<script src="~/Scripts/jquery-3.7.1.js"></script>
+<link href="~/Content/css/akash.css" rel="stylesheet" />
+<script src="~/Content/css/akash.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    })
+</script>
+
+<body>
+    <div id="contact" class="contact-area section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+
+                <h1 class="text-center" style="color:#d50000">View Registration</h1>
+            </div>
+            <div class="row table-responsive-lg">
+
+                @{
+                    DBManager db = new DBManager();
+                    string cmd = "select * from registration";
+                    System.Data.DataTable dt = db.getallrecord(cmd);
+                    if (dt.Rows.Count > 0)
+                    {
+
+                        <table class="table table-bordered table-hover"  id="example">
+                            <thead>
+                                <tr class="text text-center">
+                                    <th style="background-color:#d50000">No</th>
+                                    <th style="background-color:#d50000">Name</th>
+                                    <th style="background-color:#d50000">Email</th>
+                                    <th style="background-color:#d50000">Mobile</th>
+                                    <th style="background-color:#d50000">Password</th>
+                                    <th style="background-color:#d50000">Reg. Date</th>
+
+
+
+                                </tr>
+                            </thead>
+
+
+                            @{ for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    <tbody>
+                                        <tr style="color:white" class="text text-center">
+
+                                            <td>@dt.Rows[i]["rid"]</td>
+                                            <td>@dt.Rows[i]["name"]</td>
+                                            <td>@dt.Rows[i]["email"]</td>
+                                            <td>@dt.Rows[i]["mobile"]</td>
+                                            <td>@dt.Rows[i]["password"]</td>
+                                            <td>@dt.Rows[i]["date"]</td>
+
+
+
+
+                                        </tr>
+                                    </tbody>
+                                }
+                            }
+                        </table>
+                    }
+                    else
+                    {
+                        <h2 class="text text-center">Record not found</h2>
+                    }
+
+                }
+            </div><!--- END ROW -->
+        </div><!--- END CONTAINER -->
+    </div>
+
+
+
+
+    <!--<div id="contact" class="contact-area section-padding" style="background-color:aliceblue">
+        <div class="container">
+            <div class="section-title text-center">
+
+
+            </div>
+
+
+
+                DBManager db = new DBManager();
+                string cmd = "select * from registration";
+                System.Data.DataTable dt = db.getallrecord(cmd);
+                if (dt.Rows.Count > 0)
+                {
+
+            }
+        </div>-->
+    <!--- END ROW -->
+    <!--</div>--><!--- END CONTAINER -->
+
+</body>
+
+

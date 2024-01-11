@@ -3,57 +3,90 @@
     ViewBag.Title = "viewbooking";
     Layout = "~/Views/Shared/AdminMaster.cshtml";
 }
-@using tourTravels.Models
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+@using tourTravels.Models;
+<!-- jQuery -->
+<script src='https://code.jquery.com/jquery-3.7.0.js'></script>
+<!-- Data Table JS -->
+<script src='https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js'></script>
+<script src='https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js'></script>
+<script src='https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js'></script>
 
-<body style="background-image:url(../../Content/image/pexels-nandhu-kumar-450441.jpg);background-size:100% 100%;background-attachment:fixed">
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            //disable sorting on last column
+            "columnDefs": [
+                { "orderable": false, "targets": 5 }
+            ],
+            language: {
+                //customize pagination prev and next buttons: use arrows instead of words
+                'paginate': {
+                    'previous': '<span class="fa fa-chevron-left"></span>',
+                    'next': '<span class="fa fa-chevron-right"></span>'
+                },
+                //customize number of elements to be displayed
+                "lengthMenu": 'Display <select class="form-control input-sm">' +
+                    '<option value="10">10</option>' +
+                    '<option value="20">20</option>' +
+                    '<option value="30">30</option>' +
+                    '<option value="40">40</option>' +
+                    '<option value="50">50</option>' +
+                    '<option value="-1">All</option>' +
+                    '</select> results'
+            }
+        })
+    });
+</script>
+<body>
     <div id="contact" class="contact-area section-padding">
         <div class="container">
             <div class="section-title text-center">
-                <h1 style="color:white"><span id="sp"></span>View Booking</h1>
+                <h1 style="color:#d50000"><span id="sp"></span>View Booking</h1>
 
             </div>
             <div class="row table-responsive-lg">
 
                 @{
                     DBManager db = new DBManager();
-                    string cmd = "select * from booking";
+                    string cmd = "select * from booking order by bid desc";
                     System.Data.DataTable dt = db.getallrecord(cmd);
                     if (dt.Rows.Count > 0)
                     {
-                        <table class="table table-bordered  ">
-                            <tr style="color:white;background-color:lightgreen" class="text text-center">
-                                <td>No</td>
-                                <td>name</td>
-                                <td>Email</td>
-                                <td>Mobile</td>
-                                <td>Destination</td>
-                                <td>Picup point</td>
-                                <td>Date</td>
-
-                                <td>Delete</td>
-
-                            </tr>
+                                <table class="table table-bordered  " id="example">
+                                    <thead style="text-align:center">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>name</th>
+                                            <th>Email</th>
+                                            <th>Mobile</th>
+                                            <th>Destination</th>
+                                            <th>Picup point</th>
+                                            <th>Date</th>
+                                        </tr>
 
 
-                            @{ for (int i = 0; i < dt.Rows.Count; i++)
-                                {
-                                    <tr style="color:white" class="text text-center">
 
-                                        <td>@dt.Rows[i]["bid"]</td>
-                                        <td>@dt.Rows[i]["name"]</td>
-                                        <td>@dt.Rows[i]["email"]</td>
-                                        <td>@dt.Rows[i]["mobile"]</td>
-                                        <td>@dt.Rows[i]["destination"]</td>
-                                        <td>@dt.Rows[i]["currentloc"]</td>
-                                        <td>@dt.Rows[i]["Date"]</td>
+                                    </thead>
 
-                                        <td><a href="/manager/Deletebooking?del=@dt.Rows[i]["bid"]"><i class="fa fa-minus-circle" aria-hidden="true" style="color:red"></i></a></td>
 
-                                    </tr>
-                                }
-                            }
-                        </table>
+                                    @{ for (int i = 0; i < dt.Rows.Count; i++)
+                                        {
+                                            <tbody>
+                                                <tr style="color:white" class="text text-center">
+
+                                                    <td>@dt.Rows[i]["bid"]</td>
+                                                    <td>@dt.Rows[i]["name"]</td>
+                                                    <td>@dt.Rows[i]["email"]</td>
+                                                    <td>@dt.Rows[i]["mobile"]</td>
+                                                    <td>@dt.Rows[i]["destination"]</td>
+                                                    <td>@dt.Rows[i]["currentloc"]</td>
+                                                    <td>@dt.Rows[i]["Date"]</td>
+
+                                                </tr>
+                                            </tbody>
+                                        }
+                                    }
+                                </table>
                     }
                     else
                     {

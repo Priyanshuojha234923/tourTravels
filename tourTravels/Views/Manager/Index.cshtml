@@ -4,8 +4,323 @@
     Layout = "~/Views/Shared/ManagerMaster.cshtml";
 }
 
-<Senction style="background-color:red;height:50px">
+@using tourTravels.Models;
+<section>
+    <main class="content">
+        <div class="container-fluid p-0">
 
-</Senction>
+            <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
 
+            <div class="row">
+                <div class="col-xl-6 col-xxl-5 d-flex">
+                    <div class="w-100">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="card  mb-3">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col mt-0">
+                                                <h5 class="card-title">Total Booking</h5>
+                                            </div>
+
+                                            <div class="col-auto">
+                                                <div class="stat text-primary">
+                                                    <i class="align-middle" data-feather="truck"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @{
+                                            tourTravels.Models.DBManager db2 = new tourTravels.Models.DBManager();
+                                            string cmd2 = "SELECT COUNT(*) as book FROM Booking; ";
+                                            System.Data.DataTable dt2 = db2.getallrecord(cmd2);
+                                            if (dt2.Rows.Count > 0)
+                                            {
+                                                <h1 class="mt-1 mb-3">@dt2.Rows[0]["book"]</h1>
+                                            }
+                                        }
+
+
+                                    </div>
+                                </div>
+                                <div class="card  mb-3">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col mt-0">
+                                                <h5 class="card-title">Total Hotel Booking</h5>
+                                            </div>
+
+                                            <div class="col-auto">
+                                                <div class="stat text-primary">
+                                                    <i class="align-middle" data-feather="users"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @{
+                                            tourTravels.Models.DBManager db4 = new tourTravels.Models.DBManager();
+                                            string cmd4 = "SELECT COUNT(*) as book FROm hotel_booking";
+                                            System.Data.DataTable dt4 = db4.getallrecord(cmd4);
+                                            if (dt4.Rows.Count > 0)
+                                            {
+                                                <h1 class="mt-1 mb-3">@dt4.Rows[0]["book"]</h1>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card  mb-3">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col mt-0">
+                                                <h5 class="card-title">Total Registration</h5>
+                                            </div>
+
+                                            <div class="col-auto">
+                                                <div class="stat text-primary">
+                                                    <i class="align-middle" data-feather="dollar-sign"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @{
+                                            tourTravels.Models.DBManager db3 = new tourTravels.Models.DBManager();
+                                            string cmd3 = "SELECT COUNT(*) as book FROm registration";
+                                            System.Data.DataTable dt3 = db3.getallrecord(cmd3);
+                                            if (dt3.Rows.Count > 0)
+                                            {
+                                                <h1 class="mt-1 mb-3">@dt3.Rows[0]["book"]</h1>
+                                            }
+                                        }
+
+
+                                    </div>
+                                </div>
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col mt-0">
+                                                <h5 class="card-title">Total Contact</h5>
+                                            </div>
+
+                                            <div class="col-auto">
+                                                <div class="stat text-primary">
+                                                    <i class="align-middle" data-feather="shopping-cart"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @{
+                                            tourTravels.Models.DBManager db5 = new tourTravels.Models.DBManager();
+                                            string cmd5 = "SELECT COUNT(*) as book FROm tbl_contact";
+                                            System.Data.DataTable dt5 = db4.getallrecord(cmd5);
+                                            if (dt5.Rows.Count > 0)
+                                            {
+                                                <h1 class="mt-1 mb-3">@dt5.Rows[0]["book"]</h1>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-xxl-7">
+                    <div class="card flex-fill w-100">
+                        <div class="card-header">
+
+                            <h5 class="card-title mb-0">Recent Registration</h5>
+                        </div>
+                        <div class="card-body py-3 table-responsive">
+
+                            @{
+                                DBManager db6 = new DBManager();
+                                string cmd6 = "SELECT TOP 6 * FROM registration order by rid desc;";
+                                System.Data.DataTable dt6 = db6.getallrecord(cmd6);
+                                if (dt6.Rows.Count > 0)
+                                {
+
+                                    <table class="table table-bordered table-responsive overflow-scroll" id="example">
+                                        <thead>
+                                            <tr class="text text-center">
+
+                                                <th style="background-color:#d50000">Name</th>
+                                                <th style="background-color:#d50000">Email</th>
+                                                <th style="background-color:#d50000">Mobile</th>
+                                                <th style="background-color:#d50000">Password</th>
+                                                <th style="background-color:#d50000">Reg. Date</th>
+
+
+
+                                            </tr>
+                                        </thead>
+
+
+                                        @{ for (int i = 0; i < dt6.Rows.Count; i++)
+                                            {
+                                                <tbody>
+                                                    <tr style="color:white" class="text text-center">
+
+
+                                                        <td>@dt6.Rows[i]["name"]</td>
+                                                        <td>@dt6.Rows[i]["email"]</td>
+                                                        <td>@dt6.Rows[i]["mobile"]</td>
+                                                        <td>@dt6.Rows[i]["password"]</td>
+                                                        <td>@dt6.Rows[i]["date"]</td>
+
+
+
+
+                                                    </tr>
+                                                </tbody>
+                                            }
+                                        }
+                                    </table>
+                                }
+                                else
+                                {
+                                    <h2 class="text text-center">Record not found</h2>
+                                }
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6 col-xxl-3 d-flex order-2 order-xxl-3">
+                    <div class="card flex-fill w-100">
+                        <div class="card-header">
+
+                            <h5 class="card-title mb-0">Recent Hotel Booking</h5>
+                        </div>
+                        <div class="card-body d-flex table-responsive">
+                            @{
+                                tourTravels.Models.DBManager db = new tourTravels.Models.DBManager();
+                                string cmd = "SELECT TOP 5 * FROM hotel_Booking;";
+                                System.Data.DataTable dt = db.getallrecord(cmd);
+                                if (dt.Rows.Count > 0)
+                                {
+                                    <table class="table table-bordered table-responsive overflow-scroll " id="example">
+                                        <thead style="text-align:center">
+                                            <tr>
+
+                                                <th>name</th>
+                                                <th>Email</th>
+                                                <th>Mobile</th>
+                                                <th>City</th>
+                                                <th>check-in Date</th>
+                                                <th>Check Out Date</th>
+                                                <th>Total Bed</th>
+                                                <th>Hotel Name</th>
+                                                <th>Booking date</th>
+
+                                            </tr>
+
+
+
+                                        </thead>
+                                        <tbody>
+
+                                            @for (int i = 0; i < dt.Rows.Count; i++)
+                                            {
+
+                                                <tr style="color:white" class="text text-center">
+
+
+                                                    <td>@dt.Rows[i]["name"]</td>
+                                                    <td>@dt.Rows[i]["email"]</td>
+                                                    <td>@dt.Rows[i]["mobile"]</td>
+                                                    <td>@dt.Rows[i]["city"]</td>
+                                                    <td>@dt.Rows[i]["sdate"]</td>
+                                                    <td>@dt.Rows[i]["cdate"]</td>
+                                                    <td>@dt.Rows[i]["nop"]</td>
+                                                    <td>@dt.Rows[i]["hotelname"]</td>
+                                                    <td>@dt.Rows[i]["bookingdate"]</td>
+
+
+                                                </tr>
+
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                                else
+                                {
+                                    <h2 class="text text-center">Record not found</h2>
+                                }
+
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
+                    <div class="card flex-fill">
+                        <div class="card-header">
+
+                            <h5 class="card-title mb-0">Recent Booking</h5>
+                        </div>
+                        <div class="card-body d-flex table-responsive">
+
+                            @{
+                                tourTravels.Models.DBManager db1 = new tourTravels.Models.DBManager();
+                                string cmd1 = "SELECT TOP 5 * FROM Booking;";
+                                System.Data.DataTable dt1 = db1.getallrecord(cmd1);
+                                if (dt1.Rows.Count > 0)
+                                {
+                                    <table class="table table-bordered  overflow-scroll " id="example">
+                                        <thead style="text-align:center">
+                                            <tr>
+                                                <th>No</th>
+                                                <th>name</th>
+                                                <th>Email</th>
+                                                <th>Mobile</th>
+                                                <th>Destination</th>
+                                                <th>Picup point</th>
+                                                <th>Date</th>
+                                            </tr>
+
+
+
+                                        </thead>
+                                        <tbody>
+
+                                            @for (int i = 0; i < dt1.Rows.Count; i++)
+                                            {
+
+                                                <tr style="color:white" class="text text-center">
+
+                                                    <td>@dt1.Rows[i]["bid"]</td>
+                                                    <td>@dt1.Rows[i]["name"]</td>
+                                                    <td>@dt1.Rows[i]["email"]</td>
+                                                    <td>@dt1.Rows[i]["mobile"]</td>
+                                                    <td>@dt1.Rows[i]["destination"]</td>
+                                                    <td>@dt1.Rows[i]["currentloc"]</td>
+                                                    <td>@dt1.Rows[i]["Date"]</td>
+
+                                                </tr>
+
+                                            }
+                                        </tbody>
+
+                                    </table>
+                                }
+                                else
+                                {
+                                    <h2 class="text text-center">Record not found</h2>
+                                }
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</section>
 

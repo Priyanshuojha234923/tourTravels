@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "viewplace";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+
+@using tourTravels.Models;
+<section class="photo-gallery" style="padding:3%">
+    <h1 class="text-center mb-0">View Places</h1>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 gallery-grid">
+
+            @{
+                DBManager db = new DBManager();
+                string cmd = "select * from tbl_place";
+                System.Data.DataTable dt = db.getallrecord(cmd);
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        <div class="col text-center card">
+
+                            <img src="~/content/image/@dt.Rows[i]["file"]" class="img-fluid" alt="Image" style="height:300px;width:100%">
+                            <h2 class="card-subtitle">@dt.Rows[i]["place"]</h2>
+                            <h5><del style="color:red">$@dt.Rows[i]["orate"]</del>   <i style="color:green">$@dt.Rows[i]["nrate"]</i></h5>
+                            <center>    <a class="btn btn-outline-secondary" href="/Admin/dplace?id=@dt.Rows[i]["pid"]" style="text-decoration:none">Delete</a></center><br />
+                        </div>
+
+
+                    }
+                }
+            }
+
+
+
+
+
+
+
+        </div>
+    </div>
+</section>
+
+
+
+

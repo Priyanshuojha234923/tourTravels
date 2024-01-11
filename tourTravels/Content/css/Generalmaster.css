@@ -1,9 +1,10 @@
-﻿body {
-    font-family: "Century Gothic", 'Lato', sans-serif;
-}
-
+﻿
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 a {
     text-decoration: none;
+}
+body {
+    font-family: "Poppins", sans-serif
 }
 
 .et-hero-tabs,
@@ -17,21 +18,22 @@ a {
     background: #eee;
     text-align: center;
     padding: 0 2em;
-    h1
-
-{
+}
+h1 {
     font-size: 2rem;
     margin: 0;
     letter-spacing: 1rem;
+    font-family: "Poppins", sans-serif
 }
 
 h3 {
     font-size: 1rem;
     letter-spacing: 0.3rem;
     opacity: 0.6;
+    font-family: "Poppins", sans-serif
 }
 
-}
+
 
 .et-hero-tabs-container {
     display: flex;
@@ -43,14 +45,14 @@ h3 {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background: #fff;
     z-index: 10;
-    &--top
-
+}
+    top
 {
     position: fixed;
     top: 0;
 }
 
-}
+
 
 .et-hero-tab {
     display: flex;
@@ -61,7 +63,8 @@ h3 {
     letter-spacing: 0.1rem;
     transition: all 0.5s ease;
     font-size: 0.8rem;
-    &:hover
+}
+    .et-hero-tab:hover
 
 {
     color: white;
@@ -69,7 +72,7 @@ h3 {
     transition: all 0.5s ease;
 }
 
-}
+
 
 .et-hero-tab-slider {
     position: absolute;
@@ -99,3 +102,4 @@ h3 {
     font-size: 1rem;
 }
 }
+

@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/GeneralMaster.cshtml";
+}
+<link href="~/Content/css/registration.css" rel="stylesheet" />
+<style>
+    body {
+        font-family: "Poppins", sans-serif
+    }
+</style>
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="~/Scripts/jquery-3.7.1.slim.min.js"></script>
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+<script>
+    function on_submit() {
+        document.myform.submit();
+        document.myform.reset();
+    }
+   
+   
+</script>
+<body>
+
+    <div class="wrapper">
+        <div class="form-left">
+            <h2 class="text-uppercase">information</h2>
+            <p>
+                Twenty years from now you will be more disappointed by the things you didn’t do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails
+            </p>
+            <p class="text">
+                <span>Sub Head:</span>
+                Once the travel bug bites there is no known antidote, and I know that I shall be happily infected until the end of my life.
+            </p>
+            <div class="form-field ">
+                <a href="/home/login/" class="account"  >Have an Account?</a>
+                
+            </div>
+        </div> 
+        <form class="form-right" method="post" action="/Home/Registration" name="myform"  >
+
+    <h2 class="text-uppercase" style="color:#d50000">Registration form</h2>
+    <span style="color:green">@ViewBag.msg</span>
+    <div class="row">
+
+        <div class="col-sm-6 mb-3">
+            <label>First Name</label>
+            <input type="text" name="txtname" id="txtname" class="input-field">
+        </div>
+        <div class="col-sm-6 mb-3">
+            <label>Mobile</label>
+            <input type="text" name="txtmobile" id="txtmobile" class="input-field">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label>Your Email</label>
+        <input type="email" class="input-field" name="txtemail" id="txtemail">
+    </div>
+    <div class="row">
+        <div class="col-sm-6 mb-3">
+            <label>Password</label>
+            <input type="password" name="txtpass" id="txtpass" class="input-field">
+        </div>
+        <div class="col-sm-6 mb-3">
+            <label>Confirm Password</label>
+            <input type="password" name="txtcpass" id="txtcpass" class="input-field">
+        </div>
+    </div>
+   
+    <div class="form-field">
+        <input type="button" value="Register" class="register"   onclick="on_submit()">
+    </div>
+</form>
+    </div>
+   
+
+</body>
+
+
+
+
+

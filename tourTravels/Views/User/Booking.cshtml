@@ -1,0 +1,43 @@
+﻿@using tourTravels.Models;
+@{
+    ViewBag.Title = "Booking";
+    Layout = "~/Views/Shared/UserMaster.cshtml";
+}
+<script>
+    function on_submit() {
+        document.myform.submit();
+        document.myform.reset();
+    }
+</script>
+<div class="container-fluid bg-opacity-75" style="border-radius:50px;">
+    <center>
+        <span style="font-size:45px">Select Places</span>
+        <hr style="width:15%;height:5px;background-color:bisque" />
+    </center>
+    <div class="grid text-center overflow-x-scroll" style="display:flex;justify-content:space-between;">
+
+        @{
+
+            DBManager db = new DBManager();
+            string cmd = "select * from tbl_place";
+            System.Data.DataTable dt = db.getallrecord(cmd);
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    <div class="card-body" style="height:400px">
+                        <img class="rounded-top-4" src="~/content/image/@dt.Rows[i]["file"]" style="height:300px;width:300px;" />
+                        <h2 class="card-subtitle">@dt.Rows[i]["place"]</h2>
+                        <h5><del style="color:red">$@dt.Rows[i]["orate"]</del>   <i style="color:green">$@dt.Rows[i]["nrate"]</i></h5>
+                        <a href="/User/vplace?id=@dt.Rows[i]["pid"]" style="text-decoration:none">Reed More</a>
+                    </div>
+                }
+            }
+        }
+
+
+    </div>
+
+</div>
+
+

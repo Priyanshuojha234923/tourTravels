@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "vhbooking";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+
+@using tourTravels.Models;
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+<script src="~/Scripts/jquery-3.7.1.js"></script>
+<link href="~/Content/css/akash.css" rel="stylesheet" />
+<script src="~/Content/css/akash.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    })
+</script>
+<body>
+    <div id="contact" class="contact-area section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h1 style="color:#d50000"><span id="sp"></span>View Hotel Booking</h1>
+
+            </div>
+            <div class="row table-responsive-lg">
+
+                @{
+                    DBManager db = new DBManager();
+                    string cmd = "select * from hotel_booking order by hid desc";
+                    System.Data.DataTable dt = db.getallrecord(cmd);
+                    if (dt.Rows.Count > 0)
+                    {
+                                <table class="table table-bordered  " id="example">
+                                    <thead style="text-align:center">
+                                        <tr>
+
+                                            <th>name</th>
+                                            <th>Email</th>
+                                            <th>Mobile</th>
+                                            <th>City</th>
+                                            <th>check-in Date</th>
+                                            <th>Check Out Date</th>
+                                            <th>Total Bed</th>
+                                            <th>Hotel Name</th>
+                                            <th>Booking date</th>
+
+                                        </tr>
+
+
+
+                                    </thead>
+                                    <tbody>
+
+                                        @for (int i = 0; i < dt.Rows.Count; i++)
+                                        {
+
+                                            <tr style="color:white" class="text text-center">
+
+
+                                                <td>@dt.Rows[i]["name"]</td>
+                                                <td>@dt.Rows[i]["email"]</td>
+                                                <td>@dt.Rows[i]["mobile"]</td>
+                                                <td>@dt.Rows[i]["city"]</td>
+                                                <td>@dt.Rows[i]["sdate"]</td>
+                                                <td>@dt.Rows[i]["cdate"]</td>
+                                                <td>@dt.Rows[i]["nop"]</td>
+                                                <td>@dt.Rows[i]["hotelname"]</td>
+                                                <td>@dt.Rows[i]["bookingdate"]</td>
+
+
+                                            </tr>
+
+
+                                        }
+                                    </tbody>
+                                    </table>
+                    }
+                    else
+                    {
+                        <h2 class="text text-center">Record not found</h2>
+                    }
+
+                }
+            </div><!--- END ROW -->
+        </div><!--- END CONTAINER -->
+    </div>
+</body>
+
+
+
+
+
+
+
+

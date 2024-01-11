@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "viewticket";
+    Layout = "~/Views/Shared/UserMaster.cshtml";
+
+
+}
+<style>
+    body {
+        margin-top: 20px;
+        background-color: #eee;
+    }
+
+    .card {
+        box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+    }
+
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0 solid rgba(0,0,0,.125);
+        border-radius: 1rem;
+    }
+</style>
+
+@{if (Session["uid"] == null)
+    {
+        Response.Redirect("/home/login");
+
+    }
+    else
+    {
+        string id = Session["uid"].ToString();
+        ViewBag.id = id;
+    }
+    tourTravels.Models.DBManager db = new tourTravels.Models.DBManager();
+    string cmd = "select * from Booking where email='" +ViewBag.id+ "' order by bookingdate desc";
+    System.Data.DataTable dt = db.getallrecord(cmd);
+    if (dt.Rows.Count > 0)
+    {
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+
+    <div class="container" style="margin-top:5%;">
+       @{ 
+           string cmd1 = "select * from tbl_place where place='" + dt.Rows[i]["destination"] +"'";
+           System.Data.DataTable dt2 = db.getallrecord(cmd1);
+           if (dt2.Rows.Count > 0)
+           {
+
+               int nop = int.Parse(dt.Rows[i]["nop"].ToString());
+               int rate = int.Parse(dt2.Rows[0]["orate"].ToString());
+               int total = nop * rate;
+               int nop1 = int.Parse(dt.Rows[i]["nop"].ToString());
+               int rate1 = int.Parse(dt2.Rows[0]["nrate"].ToString());
+               int total1 = nop1 * rate1-total;
+               ViewBag.total = total;
+               ViewBag.total1 = total1;
+               ViewBag.final = total + total1;
+           }
+       }
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="invoice-title">
+                            <div class="mb-4">
+                                <h2 class="mb-1 text-muted text-center"><i><u>Let's Travel</u></i></h2>
+                            </div>
+                            <div class="text-muted">
+                                <p class="mb-1">@dt.Rows[i]["name"]</p>
+                                <p class="mb-1"><i class="uil uil-envelope-alt me-1"></i>@dt.Rows[i]["email"]</p>
+                                <p><i class="uil uil-phone me-1"></i> @dt.Rows[i]["mobile"]</p>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+
+
+                        <div class="py-2">
+                            <h5 class="font-size-15">Passenger Details</h5>
+
+                            <div class="table-responsive">
+                                <table class="table align-middle table-nowrap table-centered mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 100px;text-align:center">Total Seat</th>
+                                            <th>Name</th>
+                                            <th>From</th>
+                                            <th>TO</th>
+                                            <th>Journey Date</th>
+                                            <th class="text-end" style="width: 120px;">Total</th>
+                                        </tr>
+                                    </thead><!-- end thead -->
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">@dt.Rows[i]["nop"]</th>
+                                            <td>
+                                                <div>
+                                                    <h5 class="text-truncate font-size-14 mb-1">@dt.Rows[i]["name"]</h5>
+
+                                                </div>
+                                            </td>
+                                            <td>@dt.Rows[i]["currentloc"]</td>
+                                            <td>@dt.Rows[i]["destination"]</td>
+                                            <td>@dt.Rows[i]["date"]</td>
+                                            <td class="text-end">@ViewBag.total</td>
+                                        </tr>
+                                        <!-- end tr -->
+
+                                        <tr>
+                                            <th scope="row" colspan="5" class="text-end">Sub Total</th>
+                                            <td class="text-end">@ViewBag.total</td>
+                                        </tr>
+                                        <!-- end tr -->
+                                        <tr>
+                                            <th scope="row" colspan="5" class="border-0 text-end">
+                                                Discount :
+                                            </th>
+                                            <td class="border-0 text-end"> @ViewBag.total1</td>
+                                        </tr>
+                                        <!-- end tr -->
+
+
+                                        <tr>
+                                            <th scope="row" colspan="5" class="border-0 text-end">Total</th>
+                                            <td class="border-0 text-end"><h4 class="m-0 fw-semibold">@ViewBag.final</h4></td>
+                                        </tr>
+                                        <!-- end tr -->
+                                    </tbody><!-- end tbody -->
+                                </table><!-- end table -->
+                            </div><!-- end table responsive -->
+                            <div class="d-print-none mt-4">
+                                <div class="float-end">
+                                    <a href="javascript:window.print()" class="btn btn-success me-1">Print</a>
+                                    <a href="#" class="btn btn-primary w-md">Send</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end col -->
+        </div>
+    </div>
+        }
+    }
+
+}
+

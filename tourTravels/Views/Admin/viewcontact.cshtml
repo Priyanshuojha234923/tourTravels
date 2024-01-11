@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "viewcontact";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+@using tourTravels.Models;
+    <script src="~/Scripts/jquery-3.7.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.7.1.js"></script>
+    <link href="~/Content/css/akash.css" rel="stylesheet" />
+    <script src="~/Content/css/akash.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        })
+    </script>
+
+
+    <div id="contact" class="contact-area section-padding" style="background-color:aliceblue">
+        <div class="container">
+            <div class="section-title text-center">
+                <h1 class="text-center">View Contact</h1>
+            </div>
+            <div class="table-responsive ">
+                @{
+                    DBManager db = new DBManager();
+                    string cmd = "select * from tbl_contact order by id desc";
+                    System.Data.DataTable dt = db.getallrecord(cmd);
+                    if (dt.Rows.Count > 0)
+                    {
+                        <table class="table table-bordered table-hover" id="example">
+                            <thead>
+                                <tr class="text text-center">
+                                    <th style="background-color:#d50000">Name</th>
+                                    <th style="background-color:#d50000">Email</th>
+                                    <th style="background-color:#d50000">Mobile</th>
+                                    <th style="background-color:#d50000">Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    <tr style="color:white" class="text text-center">
+                                        <td>@dt.Rows[i]["name"]</td>
+                                        <td>@dt.Rows[i]["email"]</td>
+                                        <td>@dt.Rows[i]["phone"]</td>
+                                        <td>@dt.Rows[i]["msg"]</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <h2>No record Found</h2>
+                    }
+                }
+
+
+
+
+            </div><!--- END ROW -->
+        </div><!--- END CONTAINER -->
+    </div>
+
+
+
+
+
+
+

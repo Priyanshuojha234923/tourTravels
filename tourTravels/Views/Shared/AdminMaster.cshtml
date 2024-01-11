@@ -6,161 +6,90 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/css/admin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="~/Content/css/akash.js"></script>
+    <link href="~/Content/css/akash.css" rel="stylesheet" />
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg sticky-lg-top" style="padding:2%">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="~/Content/image/Untitled-removebg-preview.png" alt="" height="80" class="d-inline-block align-text-top">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <!--<li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>-->
-                    @*<li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>*@
-                    <!--<li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>-->
-                </ul>
-                <form class="d-flex" role="search">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/manager/index" style="color:white;font-size:20px">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Admin/ViewBooking" style="color:white;font-size:20px">View Booking</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/Manager/AddPlace" style="color:white;font-size:20px">Add New Place</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/manager/Logout" style="color:white;font-size:20px">LogOut</a>
-                        </li>
-                        @*<li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>*@
 
-                    </ul>
-                </form>
-            </div>
-        </div>
-    </nav>
-    @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm sticky-lg-top " style="background-color:darkgray">
-            <div class="container">
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class="bi bi-list" id="header-toggle"></i> </div>
 
-                <img src="~/Content/image/Untitled__2_-removebg-preview.png" />
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li>@Html.ActionLink("Dashboard", "Index", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("ViewBooking", "viewbooking", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("ViewLogin", "viewlogin", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li>@Html.ActionLink("Logout", "Logout", "Admin", new { area = "" }, new { @class = "nav-link" })</li>
-                    </ul>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="/admin/index" class="nav_logo"><i class="bi bi-car-front nav_icon" style="color:white"></i>  <span class="nav_logo-name">Let's travel</span> </a>
+                <div class="nav_list">
+                    <a href="/admin/index" class="nav_link active"> <i class="bi bi-border-all nav_icon"></i> <span class="nav_name">Dashboard</span> </a>
+                    <a href="/admin/viewRegistration" class="nav_link"> <i class='<i bi bi-r-circle nav_icon'></i> <span class="nav_name">View Registration</span> </a>
+                    <a href="/admin/viewbooking" class="nav_link"> <i class="bi bi-bookmark-check nav_icon"></i> <span class="nav_name">View Booking</span> </a>
+                    <a href="/admin/viewhotel" class="nav_link"> <i class="bi bi-cup-hot nav_icon"></i> <span class="nav_name">View Hotel</span> </a>
+                    <a href="/admin/viewplace" class="nav_link"> <i class="bi bi-shop-window nav_icon"></i> <span class="nav_name">View Place</span> </a>
+                    <a href="/admin/viewcontact" class="nav_link"> <i class="bi bi-person-lines-fill nav_icon"></i> <span class="nav_name">View Contact</span> </a>
+                    <a href="/admin/vhbooking" class="nav_link"><i class="bi bi-houses nav_icon"></i> <span class="nav_name">View Hotel booking</span> </a>
+                    <a href="/admin/cpassword" class="nav_link"> <i class="bi bi-pencil-square nav_icon"></i> <span class="nav_name">Change Password</span> </a>
                 </div>
-            </div>
-        </nav>*@
-    <div class="container body-content">
-        @RenderBody()
+            </div> <a href="/admin/Logout" class="nav_link"> <i class="bi bi-box-arrow-left nav_icon"></i> <span class="nav_name">SignOut</span> </a>
+        </nav>
+    </div>
+    <!--Container Main start-->
+    <div class="height-100 bg-light">
+        <div>
+            @RenderBody()
+
+        </div>
 
     </div>
-    <section class="">
-        <!-- Footer -->
-        <footer class="bg-dark" style="color:white">
-            <!-- Grid container -->
-            <div class=" p-4">
-                <!--Grid row-->
-                <div class="row" style="padding:2%">
-                    <!--Grid column-->
-                    <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                        <h5 class="text-uppercase text-center">Let's Travel</h5>
+    <!--Container Main end-->
 
-                        <p class="text-center">
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
-                        </p>
-                    </div>
-                    <!--Grid column-->
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase text-center">Links</h5>
-                        <ul class="list-unstyled text-center" style="color:white">
-                            <li>
-                                hello
-                            </li>
-                            <li>
-                                style
-                            </li>
-                            <li>
-                                fds
-                            </li>
-                            <li>
-                                gfds
-                            </li>
-                        </ul>
-                    </div>
-                    <!--Grid column-->
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase text-center">Links</h5>
 
-                        <ul class="list-unstyled text-center" style="color:white">
-                            <li>
-                                hello
-                            </li>
-                            <li>
-                                style
-                            </li>
-                            <li>
-                                fds
-                            </li>
-                            <li>
-                                gfds
-                            </li>
-                        </ul>
-                    </div>
-                    <!--Grid column-->
-                </div>
-                <!--Grid row-->
-            </div>
-            <!-- Grid container -->
-            <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-                © 2020 Copyright:
-                Priyanshu Ojha
-            </div>
-            <!-- Copyright -->
-        </footer>
-        <!-- Footer -->
-    </section>
-    @Scripts.Render("~/bundles/jquery")
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+            const showNavbar = (toggleId, navId, bodyId, headerId) => {
+                const toggle = document.getElementById(toggleId),
+                    nav = document.getElementById(navId),
+                    bodypd = document.getElementById(bodyId),
+                    headerpd = document.getElementById(headerId)
+
+                // Validate that all variables exist
+                if (toggle && nav && bodypd && headerpd) {
+                    toggle.addEventListener('click', () => {
+                        // show navbar
+                        nav.classList.toggle('show')
+                        // change icon
+                        toggle.classList.toggle('bx-x')
+                        // add padding to body
+                        bodypd.classList.toggle('body-pd')
+                        // add padding to header
+                        headerpd.classList.toggle('body-pd')
+                    })
+                }
+            }
+
+            showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+
+            /*===== LINK ACTIVE =====*/
+            const linkColor = document.querySelectorAll('.nav_link')
+
+            function colorLink() {
+                if (linkColor) {
+                    linkColor.forEach(l => l.classList.remove('active'))
+                    this.classList.add('active')
+                }
+            }
+            linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+            // Your code to run since DOM is loaded and ready
+        });
+    </script>
+
+
+
+
+
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

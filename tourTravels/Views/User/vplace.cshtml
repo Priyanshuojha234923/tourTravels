@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "vplace";
+    Layout = "~/Views/Shared/UserMaster.cshtml";
+}
+
+
+@{
+
+    string id = ViewBag.pid;
+    tourTravels.Models.DBManager db = new tourTravels.Models.DBManager();
+    string cmd = "select * from tbl_place where pid='" + id + "'";
+    System.Data.DataTable dt = db.getallrecord(cmd);
+    if (dt.Rows.Count > 0)
+    {
+        <section>
+            <div class="container" style="margin-bottom:5%">
+                <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <img src="~/Content/image/@dt.Rows[0]["file"]" class="d-block w-100" alt="..." style="max-height: 600px; opacity: 0.7">
+                            <div class="carousel-caption ">
+                                <span class="text-capitalize" style="font-size:40px">@dt.Rows[0]["place"]</span>
+
+                                <br />
+                                <br />
+                                <a href="/User/bookticket?id=@dt.Rows[0]["pid"]" class="btn btn-outline-dark">BOOK NOW</a>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="text-center text-uppercase" style="font-size:60px">@dt.Rows[0]["place"]</span>
+                    <hr style="height:5px;background-color:antiquewhite" />
+                    <span style="font-size:25px;text-align:justify">@dt.Rows[0]["description"]</span>
+                    <br />
+                    <br />
+                </div>
+                <div class="Row"><center><br />  <a href="/User/bookticket?id=@dt.Rows[0]["pid"]" class="btn btn-outline-dark">BOOK NOW</a> </center></div>
+            </div>
+        </section>
+      
+
+    }
+}
+
+
+
+
+

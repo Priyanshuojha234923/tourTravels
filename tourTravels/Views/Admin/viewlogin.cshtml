@@ -3,14 +3,21 @@
     ViewBag.Title = "viewlogin";
     Layout = "~/Views/Shared/AdminMaster.cshtml";
 }
-@using tourTravels.Models
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-<link href="~/Content/css/homecontact.css" rel="stylesheet" />
-<body style="background-image:url(../../Content/image/pexels-nandhu-kumar-450441.jpg);background-size:100% 100%;background-attachment:fixed">
+@using tourTravels.Models;
+<script src="~/Scripts/jquery-3.7.1.min.js"></script>
+<script src="~/Scripts/jquery-3.7.1.js"></script>
+<link href="~/Content/css/akash.css" rel="stylesheet" />
+<script src="~/Content/css/akash.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    })
+</script>
+<body>
     <div id="contact" class="contact-area section-padding">
         <div class="container">
             <div class="section-title text-center">
-                <h1 style="color:white"><span id="sp"></span>View contact</h1>
+                <h1 style="color:#d50000"><span id="sp"></span>View Login</h1>
 
             </div>
             <div class="row">
@@ -21,38 +28,37 @@
                     System.Data.DataTable dt = db.getallrecord(cmd);
                     if (dt.Rows.Count > 0)
                     {
-                        <table class="table table-responsive table-bordered">
-                            <tr style="color:white" class="text text-center">
-                                <td>No</td>
-                                <td>Userid</td>
-                                <td>password</td>
-                                <td>count</td>
-                                <td>type</td>
-                                <td>status</td>
-                                <td>login date</td>
-                                <td>Action</td>
-                            </tr>
+                        <table class="table table-responsive table-bordered" id="example">
+                            <thead>
+                                <tr style="color:white" class="text text-center">
+
+                                    <th>Userid</th>
+                                    <th>password</th>
+
+                                    <th>type</th>
+                                    <th>status</th>
+
+                                </tr>
+                            </thead>
 
 
-                            @{ for (int i = 0; i < dt.Rows.Count; i++)
-                                {
+                            @for (int i = 0; i < dt.Rows.Count; i++)
+                            {
+                                <tbody>
                                     <tr style="color:white" class="text text-center">
-                                        <td class="td1">@dt.Rows[i]["lid"]</td>
+
                                         <td>@dt.Rows[i]["userid"]</td>
                                         <td>@dt.Rows[i]["password"]</td>
-                                        <td>@dt.Rows[i]["lcount"]</td>
+
                                         <td>@dt.Rows[i]["type"]</td>
                                         <td>@dt.Rows[i]["status"]</td>
-                                        <td>@dt.Rows[i]["ldate"]</td>
-                                        <td>
-                                            <i class="fa fa-check"></i>
-                                            <i class="fa fa-close"></i>
 
-                                        </td>
+
 
                                     </tr>
-                                }
+                                </tbody>
                             }
+
                         </table>
                     }
                     else
@@ -82,7 +88,7 @@
             })
         })
     </script>
-    </body>
+</body>
 
 
 

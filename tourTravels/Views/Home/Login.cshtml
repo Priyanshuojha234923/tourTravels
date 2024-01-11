@@ -4,24 +4,42 @@
     Layout = "~/Views/Shared/GeneralMaster.cshtml";
 }
 <link href="~/Content/css/StyleSheet1.css" rel="stylesheet" />
+<script>
+    function on_submit() {
+        var name = document.myform.uid.value;
+        var password = document.myform.pass.value;
+        
+        if (name == null || name == "") {
+            alert("User Name can't be blank");
+            return false;
+        } else if (password == null || password=="") {
+            alert("Password must be enter.");
+            return false;
+        }
+        document.myform.submit();
+        document.myform.reset();
+    }
+
+</script>
 <body>
 
 
     <section >
         <!-- Main Content -->
         <div class="container-fluid">
-            <div class="row main-content text-center" style="border:2px solid green">
+            <div class="row main-content text-center" style="border:3px solid #d50000">
                 <div class="col-md-4 text-center company__info "  >
 
-                    <img src="~/Content/image/pexels-element-digital-1051073.jpg" class="img-fluid" />
+                    <img src="~/Content/image/pexels-element-digital-1051073.jpg" class="img-fluid" style="border:4px solid #d50000;padding:2%" />
                 </div>
                 <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
                     <div class="container-fluid">
                         <div class="row">
-                            <h2 style="margin-top:20px">Log In</h2>
+                            <h2 style="margin-top:20px;color:#d50000">Log In</h2>
+                            <center> <hr style="width:25% ;height:5px;background-color:#d50000" /></center>
                         </div>
                         <div class="row">
-                            <form control="login" class="form-group" method="post">
+                            <form action="/Home/Login" class="form-group" method="post" name="myform" >
                                 <div class="row">
                                     <input type="text" name="uid" id="username" class="form__input" placeholder="Username">
                                 </div>
@@ -30,8 +48,12 @@
                                     <input type="password" name="pass" id="password" class="form__input" placeholder="Password">
                                 </div>
 
-                                <div class="row">
-                                    <center> <input type="submit" value="Submit" class="btn"></center>
+                                <div class="row"style="margin-bottom:10px">
+                                    <center> 
+                                        <input type="button" value="login" class="btn btn-outline-secondary"style="background-color:#d50000;color:white" onclick="on_submit()">
+                                    <a href="/home/registration"  class="btn btn-outline-secondary"style="background-color:#d50000;color:white">Register</a>
+                                    </center>
+                                 
                                 </div>
                             </form>
                         </div>

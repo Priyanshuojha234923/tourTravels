@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Bhotel";
+    Layout = "~/Views/Shared/ManagerMaster.cshtml";
+}
+
+<script>
+    function on_submit() {
+        document.myform.submit();
+        document.myform.reset();
+    }
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <center>
+            <form method="post" action="/manager/Bhotel" enctype="multipart/form-data" name="myform">
+                <div class="col-8 p-5" style="box-shadow:0px 0px 2px 2px #d50000;margin-top:5%">
+                    <div class="row">
+                        <div class="col">
+                            <label>City Name</label>
+                            <input type="text" class="form-control" placeholder="City Name" aria-label="First name" required name="city">
+                        </div>
+                        <div class="col">
+                            <label>Hotel Name</label>
+                            <input type="text" class="form-control" placeholder="Hotel Name" aria-label="Last name" required name="hotel" />
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label>Hotel Address</label>
+                            <input type="text" class="form-control" placeholder="Hotel Address" aria-label="Last name" required name="haddress">
+                        </div>
+                        <div class="col">
+                            <label>Rent</label>
+                            <input type="text" class="form-control" placeholder="Rent" aria-label="First name" required name="rent">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col">
+                            <label>Choose File</label>
+                            <input type="File" class="form-control" placeholder="Last name" aria-label="Last name" name="file">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col" style="margin-top:3%">
+                            <input type="button" class="form-control btn " style="background-color:#d50000" value="Add Now" onclick="on_submit()">
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </center>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

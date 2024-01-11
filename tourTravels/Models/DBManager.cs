@@ -9,7 +9,7 @@ namespace tourTravels.Models
 {
     public class DBManager
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=Priyanshu\SQLEXPRESS;Initial Catalog=letstravel;Integrated Security=True");
+        SqlConnection conn = new SqlConnection("Data Source=Priyanshu\\SQLEXPRESS;Initial Catalog=letstravel;Integrated Security=True");
         SqlCommand cmd = null;
         //method for insert update delete management
         public bool myinsertupdatedelete(string command)
