@@ -37,24 +37,24 @@
 
 
 
-                                    <label class="form-label col-form-label-sm" style="text-align:start" name="txtname">@ViewBag.msg</label><br />
+                                    <label class="form-label col-form-label-sm" style="text-align:start" >@ViewBag.msg</label><br />
 
 
                                     <input type="hidden" class="card form-control " name="txtname" value="@ViewBag.name" />
 
-                                    @*<input type="hidden" class="card form-control " name="txtemail" value="@id" />*@
+                                    <input type="hidden" class="card form-control " name="txtemail" value="@ViewBag.email" />
                                     <input type="hidden" class="card form-control " name="txtmobile" value="@ViewBag.mobile" />
 
                                     <label class="form-label col-form-label-sm" style="text-align:start" >City</label>
-                                    <input type="text" class="card form-control " name="txtplace" value="@ViewBag.place" readonly required />
+                                    <input type="text" class="card form-control " name="txtcity" value="@ViewBag.city" readonly required />
                                     <label class="form-label col-form-label-sm" style="text-align:start" name="txtname">Hotel Name</label>
-                                    <input type="number" class="card form-control " name="nop" readonly required/>
+                                    <input type="text" class="card form-control " name="txthotel" value="@ViewBag.hotel" readonly required  />
                                     <label class="form-label col-form-label-sm" style="text-align:start" name="txtname">Number of Person</label>
-                                    <input type="number" class="card form-control " name="nop" required />
+                                    <input type="text" class="card form-control " name="nop" required />
                                     <label class="form-label col-form-label-sm" style="text-align:start" name="txtname">Check-in Date</label>
-                                    <input type="date" class=" form-control " name="nop" required/>
+                                    <input type="date" class=" form-control " name="txtcdate" required/>
                                     <label class="form-label col-form-label-sm" style="text-align:start" name="txtname">Check-Out Date</label>
-                                    <input type="date" class=" form-control " name="nop" required />
+                                    <input type="date" class=" form-control " name="txtodate" required />
 
 
 

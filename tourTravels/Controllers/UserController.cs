@@ -124,8 +124,9 @@ namespace tourTravels.Controllers
                 Response.Redirect("/home/login");
 
             }
+            else { 
             string id = Session["uid"].ToString();
-            string cmd = "select * from registration where id='"+id+"'";
+            string cmd = "select * from registration where email='"+id+"'";
             string cmd2 = "select * from tbl_hotel where id='" + book + "'";
             DataTable dt = new DataTable();
             DataTable dt1 = new DataTable();
@@ -134,9 +135,26 @@ namespace tourTravels.Controllers
             if(dt1.Rows.Count > 0 && dt.Rows.Count > 0)
             {
                 ViewBag.name = dt.Rows[0]["name"].ToString();
-                ViewBag.email = dt1.Rows[0]["email"].ToString();
+                ViewBag.email = dt.Rows[0]["email"].ToString();
                 ViewBag.mobile = dt.Rows[0]["mobile"].ToString();
-                ViewBag.name = dt.Rows[0]["name"].ToString();
+                ViewBag.city = dt1.Rows[0]["city"].ToString();
+                ViewBag.hotel = dt1.Rows[0]["hotel"].ToString();
+                  
+                }
+            }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Bhotel(string txtname,string txtemail,string txtmobile,string txtcity,string txthotel,string nop,string txtcdate,string txtodate)
+        {
+            string cmd = "insert into hotel_booking values('" + txtname + "','" + txtemail + "','" + txtmobile + "','" + txtcity + "','" + txtcdate + "','" + txtodate + "','" + DateTime.Now.ToString() + "','" + nop + "','" + txthotel +"','1')";
+            if (db.myinsertupdatedelete(cmd))
+            {
+                ViewBag.msg = "Data Inserted";
+            }
+            else
+            {
+                ViewBag.msg = "Data Not Inserted";
             }
             return View();
         }
